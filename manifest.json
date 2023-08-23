@@ -1,0 +1,22 @@
+
+
+{
+    "name":"Daily Motivation",
+    "description":"Provide Daily Motivation",
+    "version" : "1.0",
+    "manifest_version" : 3,
+
+    "action":{
+        "default_popup": "newtab.html",
+        "default_icon" : "icon.png"
+    },
+    "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
+
+
+
+
+
+
