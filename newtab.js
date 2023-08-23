@@ -37,3 +37,27 @@ document?.addEventListener("DOMContentLoaded", displayQuote);
 document
   .getElementById("copy-button")
   ?.addEventListener("click", copyToClipboard);
+
+async function fetchImage() {
+  const response = await fetch(
+    "https://api.unsplash.com/photos/?client_id=don5E9aq9rOpeo37Ajz7ZxkLnH1fbSVE-Jr5TNWHF1A",
+    {
+      method: "GET",
+    }
+  );
+  const data = await response.json();
+  return data;
+}
+
+async function changeBg() {
+  try {
+    const quoteData = await fetchImage();
+
+    document.body.style.backgroundImage = `url(${
+      quoteData[Math.floor(Math.random() * 10)].links["download"]
+    }})`;
+  } catch (error) {
+    console.log(error);
+  }
+}
+document?.addEventListener("DOMContentLoaded", changeBg);
