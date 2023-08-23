@@ -14,7 +14,7 @@ async function displayQuote() {
   const quoteData = await fetchQuote();
   console.log(quoteData);
   quoteElement.textContent = quoteData.content;
-  authorElement.textContent = "- " + quoteData.author;
+  authorElement.textContent = "-" + quoteData.author;
 }
 
 // Copy quote to clipboard
@@ -29,6 +29,7 @@ function copyToClipboard() {
   tempInput.select();
   document.execCommand("copy");
   document.body.removeChild(tempInput);
+  alert("copied to clipboard");
 }
 
 // Event listeners
