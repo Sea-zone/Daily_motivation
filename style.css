@@ -11,21 +11,54 @@ body {
   background-size: cover;
   display: grid;
   place-items: center;
+  box-sizing: border-box;
 }
 
-.quote-container {
-  max-width: 600px;
+.input-banner {
+  margin-top: 114px;
+  width: 100%;
+  position: relative;
+  height: 1rem !important;
+  right: 50%;
+  transform: translateX(50%);
+
+  text-align: center;
+}
+.hello {
+  font-size: 20px;
+  width: 60%;
+  padding: 1rem;
+  padding-left: 100px;
   margin: auto;
-  padding: 20px;
+}
+
+.fa-solid {
+  position: absolute;
+  margin-top: 3 rem;
+  z-index: 100;
+  top: 1rem;
+  width: 50px;
+  height: 0.5rem;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  transform: translateY(-50%);
+}
+.quote-container {
+  max-width: 500px;
+  margin-top: 57px;
+  padding: 5px;
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 blockquote {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 p {
@@ -58,7 +91,7 @@ button {
   background-color: gray;
   width: 90%;
   height: 100px;
-  left: 65px;
+  left: 72px;
 }
 .banner img {
   /* position: absolute; */
@@ -80,5 +113,40 @@ button {
 }
 
 .banner p {
+  text-align: center;
+}
+.copy-button {
+  margin-top: 0;
+  padding: 1rem;
+}
+
+.copy-button button {
+  background-color: black;
+}
+
+.shortct {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  color: black;
+}
+.shortct img {
+  width: 70px;
+  /* gap: 1rem; */
+  background-color: #fff;
+}
+.socialm {
+  width: 100px;
+  text-align: center;
+}
+
+.seocializ {
+  /* background-color: #c80404; */
+
+  /* border: 1px solid; */
+  /* box-shadow: 5px 10px; */
+  /* border-radius: 10px; */
+}
+.seocializ p {
   text-align: center;
 }

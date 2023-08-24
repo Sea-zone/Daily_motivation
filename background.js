@@ -6,4 +6,4 @@ function generateRandomNumber() {
 }
 
 const randomNumber = generateRandomNumber();
-document.body.style.backgroundImage = `url(${image[randomNumber]})`;
+// document.body.style.backgroundImage = `url(${image[randomNumber]})`;
