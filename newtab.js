@@ -6,13 +6,20 @@ async function fetchQuote() {
   return data;
 }
 
+// Function to perform a Google search
+function performGoogleSearch(query) {
+  const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(
+    query
+  )}`;
+  window.location.href = googleSearchUrl;
+}
+
 // Display a quote on the new tab page
 async function displayQuote() {
   const quoteElement = document.getElementById("quote");
   const authorElement = document.getElementById("author");
 
   const quoteData = await fetchQuote();
-  console.log(quoteData);
   quoteElement.textContent = quoteData.content;
   authorElement.textContent = "-" + quoteData.author;
 }
@@ -29,11 +36,11 @@ function copyToClipboard() {
   tempInput.select();
   document.execCommand("copy");
   document.body.removeChild(tempInput);
-  alert("copied to clipboard");
+  alert("Copied to clipboard");
 }
 
 // Event listeners
-document?.addEventListener("DOMContentLoaded", displayQuote);
+document.addEventListener("DOMContentLoaded", displayQuote);
 document
   .getElementById("copy-button")
   ?.addEventListener("click", copyToClipboard);
@@ -60,4 +67,13 @@ async function changeBg() {
     console.log(error);
   }
 }
-document?.addEventListener("DOMContentLoaded", changeBg);
+document.addEventListener("DOMContentLoaded", changeBg);
+
+// Event listener for the search form
+document
+  .querySelector(".input-banner")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const searchInput = document.querySelector(".hello").value;
+    performGoogleSearch(searchInput); // Call the Google search function
+  });

@@ -175,7 +175,7 @@ button {
   margin-left: 10px;
 }
 
-.image-overlay-container {
+body {
   position: relative;
 }
 
@@ -187,9 +187,22 @@ button {
   /* position: absolute; */
   top: 0;
   left: 0;
-  /* Place the overlay below content */
-  opacity: 0.5; /* Adjust opacity as needed */
-  /* You can add other styling properties like background color here */
 }
 
 /* Rest of your existing styles */
+
+body::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.image-overlay-container {
+  position: relative;
+  z-index: 2;
+}
