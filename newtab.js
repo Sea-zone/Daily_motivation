@@ -76,4 +76,28 @@ document
     event.preventDefault();
     const searchInput = document.querySelector(".hello").value;
     performGoogleSearch(searchInput); // Call the Google search function
+    clearSearchInput(); // Clear the search input after performing the search
   });
+
+// Function to clear the search input field
+function clearSearchInput() {
+  const searchInput = document.querySelector(".hello");
+  searchInput.value = ""; // Clear the input field
+}
+// Event listener for clearing the search input
+document.addEventListener("DOMContentLoaded", clearSearchInput);
+
+// Function to load a lazy background image
+function loadLazyBackgroundImage() {
+  const lazyBackgrounds = document.querySelectorAll(".image-overlay");
+  lazyBackgrounds.forEach((lazyBackground) => {
+    if (
+      lazyBackground.dataset.src &&
+      lazyBackground.style.backgroundImage === "none"
+    ) {
+      lazyBackground.style.backgroundImage = `url(${lazyBackground.dataset.src})`;
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", loadLazyBackgroundImage);

@@ -12,5 +12,14 @@
     },
     "permissions": [
         "activeTab"
-    ]
+    ],
+    "commands": {
+  "open_recent_websites": {
+    "suggested_key": {
+      "default": "Ctrl+Shift+R",
+      "mac": "Command+Shift+R"
+    },
+    "description": "Open recent websites"
+  }
+}
 }

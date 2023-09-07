@@ -13,6 +13,11 @@ body {
   place-items: center;
   box-sizing: border-box;
 }
+html,
+body {
+  height: 100vs;
+  overflow-y: hidden;
+}
 
 .input-banner {
   margin-top: 114px;
@@ -134,7 +139,8 @@ button {
 }
 
 .copy-button button {
-  background-color: black;
+  background-color: white;
+  color: black;
 }
 
 /* .sicons {
@@ -205,4 +211,37 @@ body::before {
 .image-overlay-container {
   position: relative;
   z-index: 2;
+}
+.position {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.date {
+  background-color: white !important;
+  z-index: 9999;
+  height: 2.8rem;
+}
+.ok {
+  width: 100%;
+  height: 2.8rem;
+}
+
+/* Example CSS for the shortcut icons */
+.shortcut-icons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.shortcut-icons a {
+  margin: 0 10px; /* Adjust the spacing between icons */
+  text-decoration: none;
+  color: #333;
+}
+
+.shortcut-icons a img {
+  width: 50px; /* Adjust the icon size */
+  height: auto;
+  border-radius: 10px; /* Add rounded corners to the icons */
 }
