@@ -11,7 +11,7 @@
         "newtab": "newtab.html"
     },
     "permissions": [
-        "activeTab"
+        "activeTab","storage"
     ],
     "commands": {
   "open_recent_websites": {

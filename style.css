@@ -197,9 +197,7 @@ body {
   left: 0;
 }
 
-/* Rest of your existing styles */
-
-/* body::before {
+Rest of your existing styles */ body::before {
   content: "";
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
@@ -209,7 +207,7 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
-} */
+}
 .image-overlay-container {
   position: relative;
   z-index: 2;
@@ -250,6 +248,7 @@ body {
 .shortcut-icons {
   text-align: center;
   margin-top: 20px;
+  background-color: red;
 }
 
 .shortcut-icons a {

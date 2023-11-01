@@ -99,5 +99,67 @@ function loadLazyBackgroundImage() {
     }
   });
 }
+// Function to generate shortcut icons
+async function generateShortcutIcons() {
+  const container = document.getElementById("shortcut-container");
+  const links = document.querySelectorAll("a"); // get all anchor elements
+
+  // Loop through the links and create shortcuts
+  for (const link of links) {
+    try {
+      const url = new URL(link.href);
+      const websiteUrl = url.origin;
+      const metadataUrl = `${websiteUrl}/.well-known/open-graph.json`;
+
+      // Fetch website metadata using the Open Graph Protocol
+      const response = await fetch(metadataUrl);
+
+      if (response.ok) {
+        const metadata = await response.json();
+
+        const shortcutLink = document.createElement("a");
+        shortcutLink.href = websiteUrl;
+        shortcutLink.target = "_blank";
+
+        const shortcutImage = document.createElement("img");
+        shortcutImage.src = metadata.icons
+          ? metadata.icons[0].url
+          : "default-icon.png";
+
+        const shortcutName = document.createElement("p");
+        shortcutName.textContent = metadata.title || websiteUrl;
+
+        shortcutLink.appendChild(shortcutImage);
+        shortcutLink.appendChild(shortcutName);
+
+        container.appendChild(shortcutLink);
+      } else {
+        // Handle the case where metadata cannot be fetched
+        console.error(
+          `Error fetching metadata for ${websiteUrl}: ${response.status} ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      // Handle error if the URL cannot be parsed or other errors occur
+      console.error(`Error processing ${link.href}: ${error.message}`);
+    }
+  }
+}
+// Get the current active tab's URL
+chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+  const tab = tabs[0];
+  const tabUrl = tab.url;
+
+  // Create an image element for the favicon
+  const faviconImg = document.createElement("img");
+  faviconImg.src = `https://www.google.com/s2/favicons?domain=${tabUrl}`;
+
+  // Add the favicon image to the container
+  const faviconContainer = document.getElementById("favicon-container");
+  faviconContainer.appendChild(faviconImg);
+});
+
+// Call the function to generate shortcut icons when the page loads
+window.addEventListener("load", generateShortcutIcons);
 
 document.addEventListener("DOMContentLoaded", loadLazyBackgroundImage);
